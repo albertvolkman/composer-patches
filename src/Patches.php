@@ -221,7 +221,7 @@ class Patches implements PluginInterface, EventSubscriberInterface {
     $localRepository = $this->composer->getRepositoryManager()->getLocalRepository();
     $localPackage = $localRepository->findPackage($package_name, $package->getVersion());
     $extra = $localPackage->getExtra();
-    $extra['patches_applied'] = [];
+    $extra['patches_applied'] = array();
 
     foreach ($this->patches[$package_name] as $description => $url) {
       $this->io->write('    <info>' . $url . '</info> (<comment>' . $description. '</comment>)');
